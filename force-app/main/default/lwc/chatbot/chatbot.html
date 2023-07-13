@@ -1,0 +1,57 @@
+<template>
+    <lightning-card title="AI Chat Sample" icon-name="standard:bot">
+        <lightning-button label="Prompt" onclick={showPromptEditor} slot="actions"></lightning-button>
+        <div class="chat-container">
+            <section class="message-container">
+                <ul class="slds-chat-list">
+                    <template for:each={fullConversation} for:item="chatMessage">
+                        <c-chat-message key={chatMessage.index} role={chatMessage.role} content={chatMessage.content}></c-chat-message>
+                    </template>
+                </ul>
+                <div class="list-bottom"></div>
+            </section>
+            <section class="message-input">
+                <form onsubmit={addMessageHandler} class="form-container">
+                    <template if:true={loading}>
+                        <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+                    </template>
+                    <input autofocus value={currentQuestion} class="slds-input" label="ask question to AI" oninput={inputChangeHandler} type="text"/>
+                    <lightning-button-icon disabled={emptyInput} icon-name="utility:send"  variant="brand" alternative-text="Submit"></lightning-button-icon>
+                </form>
+            </section>
+        </div>
+    </lightning-card>
+    <template if:true={promptVisible}>
+        <section      
+            role="dialog"
+            tabindex="-1"
+            aria-labelledby="Add SID Modal"
+            aria-modal="true"
+            class="slds-modal">
+        <div class="slds-modal__container">
+          <div class="slds-modal__header">
+            <h1 class="slds-modal__title slds-hyphenate">
+              Modify the AI prompt
+            </h1>
+          </div>
+          <div class="slds-modal__content prompt-container"> 
+            <textarea placeholder={systemPrompt} name="" oninput={promptChangeHandler} rows="10"></textarea>
+        </div>
+        <div class="slds-modal__footer">
+            <lightning-button
+              aria-label="Cancel and close"
+              onclick={hidePromptEditor}
+              label="Cancel"
+            ></lightning-button>
+            <lightning-button
+              aria-label="save modified prompt"
+              onclick={savePrompt}
+              variant="brand"
+              label="Save"
+            ></lightning-button>
+          </div>
+        </div>
+        </section>
+        <div class="slds-backdrop" role="presentation"></div>
+    </template>
+</template>

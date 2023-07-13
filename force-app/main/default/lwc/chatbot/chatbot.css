@@ -1,0 +1,30 @@
+.chat-container {
+    height: 500px;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.message-container {
+    padding: 20px;
+    overflow-y: scroll;
+}
+
+.message-input {
+    padding: 20px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.prompt-container {
+    padding: 10px;
+}
+
+.prompt-container > textarea {
+    width: 100%;
+}
