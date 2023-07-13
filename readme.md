@@ -1,6 +1,7 @@
-#Chatbot Demo App
+# Chatbot Demo App
 
-##Overview
+## Overview
+
 This demo app is a basic AI Chat app that targets OpenAI. You will need an Open AI Key.
 
 This app uses Langchain so expansion of functionality can be done without exposing data to OpenAI.
