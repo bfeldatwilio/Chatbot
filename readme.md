@@ -12,6 +12,10 @@ There are three components:
 -   **Apex class** that communicates with the NodeJs Function
 -   **NodeJs Function** that houses the Langchain bits and communicates with OpenAI
 
+# Usage
+
+There is a default prompt, so asking questions will use that prompt. Clicking the `prompt` button will bring up a dialog to modify the prompt
+
 # Install
 
 Installation and further docs can be found in this [wiki entry](https://wiki.hq.twilio.com/display/GTMBASFDC/Functions+for+Third+Party+Integration)
